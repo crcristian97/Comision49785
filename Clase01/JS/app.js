@@ -45,8 +45,8 @@ let declarionAnonymous
 const edad = 18
 
 //valor string
-let nombreUsuario = "Cristian Cabrera";
-let apellidoUsuario = 'Cracken';
+//let nombreUsuario = "Cristian Cabrera";
+//let apellidoUsuario = 'Cracken';
 
 //valor boolean
 let esMayorEdad = true;
@@ -78,5 +78,38 @@ let resultadoProducto = numeroA * IVA;
 console.log(resultadoProducto)
 
 
+//prompt , alert y console.log
+//let nombreUsuario = prompt("Decime tu edad");
+
+//En el medio de aca se hace un if else, en donde depende del valor yo le muestro algo al usuario
+//Condicional
+//alert("Sos menos de 18");
+
+//Ejercicio coderhouse
+//1-Pedir nombre mediante prompt y mostrarlo en consola junto con algún texto de saludo. Ejemplo:  ¡Hola, Juan!
+//2-Pedir un número mediante prompt, parsearlo, sumarlo a otro que se encuentre almacenado en una variable y luego mostrar el resultado en consola.
+//3-Pedir un texto mediante prompt, luego otro, concatenarlos y mostrarlo en un alerta.
+
+//Ejercicio 1
+let nombreUser = prompt("Decime tu nombre");
+console.log("Hola " + nombreUser);
+
+//Ejercicio 2
+
+let numeroUsuario = parseInt(prompt("Decime un numero"));
+let sumaNumber = numeroUsuario + IVA;
+console.log("El resultado es " + sumaNumber);
+
+//el parseInt te cambia el tipo de dato de string a number
+//Que es el parseo? es cuando se cambia el tipo de dato de string a number
+//typeof.Leeanlo
+
+//Ejercicio 3 
+let textUser1 = prompt("Decime tu nombre");
+let textUser2 = prompt("Decime tu apellido");
+
+let userObject = textUser1 + " " + textUser2;
+
+alert(userObject);
 
 
