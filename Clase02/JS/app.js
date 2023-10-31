@@ -28,7 +28,7 @@ if(false){
 //SIEMPRE SIEMPRE SIEMPRE SIEMPRE SIEMPRE se usa === 
 //El == compara solo el valor de la variable 
 //El === compara valor y tipo de dato
-let ingreseNumero = parseInt(prompt("Decime tu edad"));
+/*let ingreseNumero = parseInt(prompt("Decime tu edad"));
 
 //Aca ingresas
 if(ingreseNumero >= 18){
@@ -38,7 +38,7 @@ if(ingreseNumero >= 18){
   //te dejo en la misma pagina sin que puedas ingresar
   //Te muestro con ESTILOS que no podes ingresar
   alert("No pasas");
-}
+}*/
 
 //Vimos 3 operadores
 // = .Asigna valor a las variables.
@@ -51,13 +51,13 @@ if(ingreseNumero >= 18){
 
 ////CREAMOS UN FORMULARIO
 
-let nombreIngresado = prompt("Decime tu nombre");
+/*let nombreIngresado = prompt("Decime tu nombre");
 
 if(nombreIngresado === ""){
   alert("No ingresate nada");
 }else {
   alert("Bienvenido " + nombreIngresado);
-}
+}*/
 
 
 //Condiciones anidadas
@@ -66,6 +66,7 @@ if(nombreIngresado === ""){
 //Se termina siempre con else 
 //En el else if se le pone la condicion
 
+/*
 let precio = parseInt(prompt("Cuanto te salio la camisa"));
 
 if( precio > 60000){
@@ -84,4 +85,41 @@ let esMayor5 = numero > 5; // Esto va a dar true
 
 if (esMayor5) {
     console.log("Verdadero");
+}*/
+
+
+//condicionales &&
+//Se tiene que cumplir SI O SI los 2 terminos de las condiciones
+/*let nombreIngresado   = prompt("Ingresar nombre"); // 
+let apellidoIngresado = prompt("Ingresar apellido"); //  
+
+if((nombreIngresado !== "") && (apellidoIngresado !== "")){
+    alert("Nombre: "+nombreIngresado +"\nApellido: "+apellidoIngresado); 
+}else{
+    alert("Error: Ingresar nombre y apellido");
+}*/
+
+//Operador ||
+//Se tiene que cumplir SI O SI uno de los terminos
+/*let nombreIngresado   = prompt("Ingresar nombre");
+debugger
+if((nombreIngresado == "ANA") || (nombreIngresado =="ana")){
+    alert("El nombre ingresado es Ana"); 
+}else{
+    alert("El nombre ingresado NO ES Ana"); 
+}*/
+
+//Combinacion de Operadores
+//Que separa nosotros por terminos.En primer nivel los parentesis, en2do nivel el operador
+let nombreIngresado   = prompt("Ingresar nombre"); //Ema
+
+if((nombreIngresado !="") && (nombreIngresado == "EMA") || (nombreIngresado =="ema")){
+    alert("Hola Ema"); 
+}else{
+    alert("Error: Ingresar nombre valido");
 }
+
+
+
+
+
