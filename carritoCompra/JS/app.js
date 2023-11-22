@@ -1,56 +1,81 @@
+let carrito = [];
+
 const productos = [
-  { nombre: "Remera", valor: 10 },
-  { nombre: "Gorra", valor: 20 },
-  { nombre: "Zapatilla", valor: 50 },
-  { nombre: "Gorra", valor: 300 },
-  { nombre: "Ojotas", valor: 23 },
-  { nombre: "Monitor", valor: 15 },
+  { nombre: "Remera", valor: 10, descripcion: "Excelente estado", img: "../img/gorra.jpg"},
+  { nombre: "Gorra", valor: 20, descripcion: "Excelente estado", img: "../img/gorra.jpg" },
+  { nombre: "Zapatilla", valor: 50, descripcion: "Excelente estado", img: "../img/gorra.jpg" },
+  { nombre: "Gorra", valor: 300, descripcion: "Excelente estado", img: "../img/gorra.jpg" },
+  { nombre: "Ojotas", valor: 23, descripcion: "Excelente estado", img: "../img/gorra.jpg" },
+  { nombre: "Monitor", valor: 15, descripcion: "Excelente estado", img: "../img/gorra.jpg" },
 ];
 
-// Función para mostrar productos
+function agregarAlCarrito(nombre, valor) {
+  // Agregar producto al array carrito
+  carrito.push({ nombre, valor });
+
+  // Actualizar la lista en el modal
+  actualizarListaCarrito();
+
+  // Mostrar el modal
+  mostrarModal();
+}
+
+function mostrarModal() {
+  const modalElement = document.getElementById('carritoModal');
+  const modal = new bootstrap.Modal(modalElement);
+  modal.show();
+}
+
+function actualizarListaCarrito() {
+  const listaCarrito = document.getElementById('listaCarrito');
+  listaCarrito.innerHTML = ''; // Limpiar la lista actual
+
+  // Agregar cada producto del carrito a la lista
+  carrito.forEach((producto, index) => {
+    const item = document.createElement('li');
+    item.classList.add('list-group-item');
+    item.innerHTML = `
+      ${producto.nombre} - Valor: ${producto.valor}
+      <span class="fas fa-trash-alt float-right" style="cursor: pointer;" onclick="eliminarDelCarrito(${index})"></span>
+    `;
+    listaCarrito.appendChild(item);
+  });
+}
+
+function eliminarDelCarrito(index) {
+  debugger
+  carrito.splice(index, 1); // Eliminar el elemento del array
+  actualizarListaCarrito(); // Actualizar la lista en el modal
+}
+
 function mostrarProductos(productosFiltrados) {
   const contenedor = document.getElementById("contenedorProductos");
   contenedor.innerHTML = ""; // Limpiar el contenedor
   productosFiltrados.forEach(producto => {
-      // Crear el div para el producto con estilo de tarjeta de Bootstrap
       const divProducto = document.createElement("div");
       divProducto.classList.add("card", "m-2");
       divProducto.style.width = "18rem";
       divProducto.innerHTML = `
           <div class="card-body">
               <h5 class="card-title">${producto.nombre}</h5>
+              <p class="card-text">${producto.descripcion}</p>
+              <img src="${producto.img}" class="card-img-top" alt="Imagen de ${producto.nombre}">
               <p class="card-text">Valor: ${producto.valor}</p>
-              <button class="btn btn-primary" onclick="alert('Producto agregado: ${producto.nombre}')">Agregar al Carrito</button>
+              <button class="btn btn-primary" onclick="agregarAlCarrito('${producto.nombre}', ${producto.valor})">Agregar al Carrito</button>
           </div>
       `;
-
-      // Añadir el div del producto al contenedor
       contenedor.appendChild(divProducto);
   });
 }
 
-// Función para filtrar productos basado en la entrada del usuario
 function filtrarProductos() {
   const textoBusqueda = document.getElementById("buscadorProducto").value.toLowerCase();
-  debugger
   const productosFiltrados = productos.filter(producto => 
       producto.nombre.toLowerCase().includes(textoBusqueda)
   );
   mostrarProductos(productosFiltrados);
 }
 
-// Evento para detectar la entrada del usuario
 document.getElementById("buscadorProducto").addEventListener("input", filtrarProductos);
 
-
-
-// Inicialmente mostrar todos los productos
 mostrarProductos(productos);
-
-
-
-
-
-
-
-
