@@ -1,4 +1,11 @@
 let carrito = [];
+let carritoStorage = JSON.parse(localStorage.getItem('carrito'));
+
+if(carritoStorage.length >= 1){
+  alert("Veni y termina la compra!")
+}else{
+console.log("Siga siga siga")
+}
 
 const productos = [
   { nombre: "Remera", valor: 10, descripcion: "Excelente estado", img: "../img/gorra.jpg"},
@@ -9,6 +16,11 @@ const productos = [
   { nombre: "Monitor", valor: 15, descripcion: "Excelente estado", img: "../img/gorra.jpg" },
 ];
 
+function guardarCarritoLocalStorage(){
+  //mandar al local
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
 function agregarAlCarrito(nombre, valor) {
   // Agregar producto al array carrito
   carrito.push({ nombre, valor });
@@ -18,7 +30,11 @@ function agregarAlCarrito(nombre, valor) {
 
   // Mostrar el modal
   mostrarModal();
+
+  guardarCarritoLocalStorage();
 }
+
+
 
 function mostrarModal() {
   const modalElement = document.getElementById('carritoModal');
@@ -31,7 +47,7 @@ function actualizarListaCarrito() {
   listaCarrito.innerHTML = ''; // Limpiar la lista actual
 
   // Agregar cada producto del carrito a la lista
-  carrito.forEach((producto, index) => {
+  carrito.map((producto, index) => {
     const item = document.createElement('li');
     item.classList.add('list-group-item');
     item.innerHTML = `
@@ -43,9 +59,9 @@ function actualizarListaCarrito() {
 }
 
 function eliminarDelCarrito(index) {
-  debugger
   carrito.splice(index, 1); // Eliminar el elemento del array
   actualizarListaCarrito(); // Actualizar la lista en el modal
+  localStorage.clear();
 }
 
 function mostrarProductos(productosFiltrados) {
@@ -79,3 +95,5 @@ function filtrarProductos() {
 document.getElementById("buscadorProducto").addEventListener("input", filtrarProductos);
 
 mostrarProductos(productos);
+
+
