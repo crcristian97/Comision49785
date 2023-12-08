@@ -1,11 +1,11 @@
 let carrito = [];
 let carritoStorage = JSON.parse(localStorage.getItem('carrito'));
 
-if(carritoStorage.length >= 1){
-  alert("Veni y termina la compra!")
-}else{
-console.log("Siga siga siga")
-}
+// if(carritoStorage.length >= 1){
+//   alert("Veni y termina la compra!")
+// }else{
+// console.log("Siga siga siga")
+// }
 
 const productos = [
   { nombre: "Remera", valor: 10, descripcion: "Excelente estado", img: "../img/gorra.jpg"},
@@ -22,6 +22,31 @@ function guardarCarritoLocalStorage(){
 }
 
 function agregarAlCarrito(nombre, valor) {
+  // Swal.fire({
+  //   title: "Este producto se va agregar al carrito",
+  //   text: "Buena eleccion",
+  //   icon: "info",
+  //   showCancelButton: true,
+  //   confirmButtonColor: "#3085d6",
+  //   cancelButtonColor: "#d33",
+  //   confirmButtonText: "Yes, delete it!"
+  // }).then((result) => {
+  //   debugger
+  //   if (result.isConfirmed) {
+  //     Swal.fire({
+  //       title: "Se agrego el producto",
+  //       icon: "success"
+  //     });
+  //   }
+  // });
+
+  Toastify({
+    text: "Producto agregado al carrito",
+    className: "info",
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    }
+  }).showToast();
   // Agregar producto al array carrito
   carrito.push({ nombre, valor });
 

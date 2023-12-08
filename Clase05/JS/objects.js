@@ -5,16 +5,16 @@
 //definimos la variable, palabra del objecto y llaves
 //Se puede modificar su propiedad y valor
 
-const persona = {
-  //Propiedad es nombres y valor Cristian
-  nombre : 'Manuel',
-  apellido: 'Carranza',
-  email: 'cc@gmail.com',
-  password: 'password',
-  alumno: true,
-  tutor: "Lautaro amengual",
-  edad: 26,
-}
+// const persona = {
+//   //Propiedad es nombres y valor Cristian
+//   nombre : 'Manuel',
+//   apellido: 'Carranza',
+//   email: 'cc@gmail.com',
+//   password: 'password',
+//   alumno: true,
+//   tutor: "Lautaro amengual",
+//   edad: 26,
+// }
 //console.log("Manu aca es alumno" , persona);
 //Obtener los valores. 1er forma de objeter valores
 //console.log(persona.alumno);
@@ -42,20 +42,22 @@ const persona = {
 //Para crear objectos
 //Palabra function seguido del nombre Mayuscula,parentesis y corchetes
 
-// function Persona(nombre, apellido, email, password, alumno, tutor, edad){
-//   this.nombre = nombre;
-//   this.apellido = apellido;
-//   this.email = email;
-//   this.password = password;
-//   this.alumno = alumno;
-//   this.tutor = tutor;
-//   this.edad = edad;
-// }
+
+
+ function Persona(nombre, apellido, email, password, alumno, tutor, edad){
+   this.nombre = nombre;
+   this.apellido = apellido;
+   this.email = email;
+   this.password = password;
+   this.alumno = alumno;
+   this.tutor = tutor;
+   this.edad = edad;
+ }
 
 //Para crear nuevos objectos se hace, una constantes con el nombre y palabra NEW haciendo referencia al constructor
 //EN ORDEN DE ACUERDO A LOS PARAMETROS
-// const persona1 = new Persona("Esteban", "Villagra", "crcr@gmail.com", 12334, true, false, 25);
-// const persona2 = new Persona("Pablo", "Diaz", "diazcrack@gmail.com", 12334, true, false);
+ const persona1 = new Persona("Esteban", "Villagra", "crcr@gmail.com", 12334, true, false, 25);
+ const persona2 = new Persona("Pablo", "Diaz", "diazcrack@gmail.com", 12334, true, false);
 
 // console.log(persona1);
 // console.log(persona2);
